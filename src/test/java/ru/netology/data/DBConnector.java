@@ -12,7 +12,7 @@ public class DBConnector {
     private static String dbUser = System.getProperty("app.user");
     private static String dbPass = System.getProperty("app.password");
 
-    public static ru.netology.DBConnector.PaymentData getLastPaymentData(String tableName) throws SQLException {
+    public static PaymentData getLastPaymentData(String tableName) throws SQLException {
         String paymentSQL = "SELECT id, status FROM " + tableName + " ORDER BY created DESC LIMIT 1";
         String id = null;
         String status = null;
@@ -29,7 +29,7 @@ public class DBConnector {
                 }
             }
         }
-        return new ru.netology.DBConnector.PaymentData(id, status);
+        return new PaymentData(id, status);
     }
 
     @Value
